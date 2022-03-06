@@ -6,7 +6,9 @@ let poses = [];
 let video = document.getElementById("input_video"),
 constraints = {
   audio: false,
-  video: true,
+  video: {
+    facingMode: { exact: "environment" }
+  }
 };
 video.style.display = "none";
 
