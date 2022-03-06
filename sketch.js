@@ -7,7 +7,7 @@ let video = document.getElementById("input_video"),
 constraints = {
   audio: false,
   video: {
-    facingMode: "environment"
+    facingMode: "user"
   }
 };
 video.style.display = "none";
