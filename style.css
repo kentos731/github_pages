@@ -1,0 +1,77 @@
+body {
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    background: #ffffff;
+    color: #fff;
+}
+
+h1{
+    font-size: 45px;
+  }
+
+div {
+    display: block;
+}
+
+.cont {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.a-spacing-none {
+    font-size: 30px
+}
+
+#btn_reset {
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+#disp_count {
+    font-size: 70px;
+    font-weight: bold; 
+}
+#defaultCanvas0{
+    display: block;
+    /* float: left; */
+    /* box-shadow: 0px 10px 10px -5px; */
+}
+
+.dash-unit {
+    margin: 0px 30px 0px 30px;
+    padding-bottom: 10px;
+    text-align: center;
+    border: 1px solid #383737;
+    background-image: url(../images/sep-half.png);
+    background-color: #3d3d3d;
+    /* color: white; */
+    /* height: 200px; */
+    width: 290px;
+    float: left;
+    box-shadow: 0px 5px 5px -5px;
+}
+
+#temperature {
+    display: inline-block;
+    color: #000;
+    text-align: center;
+    padding: 1% 5%;
+    /* background-color: #99cc00; */
+    margin: 10px;
+}
+
+.twitter{
+    margin-top: 1px;
+    float: left;
+  }
