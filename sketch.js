@@ -8,6 +8,7 @@ constraints = {
   audio: false,
   video: {
     facingMode: "user"
+  }
 };
 video.style.display = "none";
 
