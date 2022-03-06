@@ -9,7 +9,7 @@ let reset_btn = document.getElementById("btn_reset");
 
 function setup() {
   console.log('セットアップ');
-  createCanvas(windowWidth, windowHeight);
+  createCanvas(1280, 720);
   video = createCapture(VIDEO);
   video.size(width, height);
 
