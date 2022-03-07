@@ -91,7 +91,7 @@ function draw() {
         // https://p5js.org/reference/#/p5/image
         //videoImage.drawingContext.drawImage(video, 0, 0);
         //image(videoImage, 0, 0);
-        //image(video, 0, 0, width, height);
+        image(video2, 0, 0, width, height);
         drawSkeleton();
         drawKeypoints();
         // p5.jsがdraw()内のコードの連続的な実行を行うのを停める
