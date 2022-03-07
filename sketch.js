@@ -1,4 +1,4 @@
-//let video;
+let video2;
 let poseNet;
 let poses = [];
 
@@ -29,18 +29,18 @@ function setup() {
   console.log('セットアップ');
   createCanvas(640, 480);
   videoImage = createGraphics(width, height);
-  //video = createCapture(VIDEO);
-  //video.size(width, height);
+  video2 = createCapture(VIDEO);
+  video2.size(width, height);
 
   // Create a new poseNet method with a single detection
-  poseNet = ml5.poseNet(videoImage, modelReady);
+  poseNet = ml5.poseNet(video2, modelReady);
   // This sets up an event that fills the global variable "poses"
   // with an array every time new poses are detected
   poseNet.on('pose', function(results) {
     poses = results;
   });
   // Hide the video element, and just show the canvas
-  //video.hide();
+  video2.hide();
 }
 
 function modelReady() {
