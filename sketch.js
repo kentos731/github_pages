@@ -1,46 +1,25 @@
-let video2;
+let video;
 let poseNet;
 let poses = [];
 
 
-let video = document.getElementById("input_video"),
-constraints = {
-  audio: false,
-  video: {
-    facingMode: "environment"
-  }
-};
-video.style.display = "none";
-
-navigator.mediaDevices
-  .getUserMedia(constraints)
-  .then(function (stream) {
-    video.srcObject = stream;
-    video.onloadedmetadata = function (e) {
-      video.play();
-    };
-  })
-  .catch(function (err) {
-    console.log(err.name + ": " + err.message);
-  });
-let videoImage;
 
 function setup() {
   console.log('セットアップ');
   createCanvas(640, 480);
-  videoImage = createGraphics(width, height);
-  video2 = createCapture(video);
-  video2.size(width, height);
+  //videoImage = createGraphics(width, height);
+  video = createCapture(VIDEO);
+  video.size(width, height);
 
   // Create a new poseNet method with a single detection
-  poseNet = ml5.poseNet(video2, modelReady);
+  poseNet = ml5.poseNet(video, modelReady);
   // This sets up an event that fills the global variable "poses"
   // with an array every time new poses are detected
   poseNet.on('pose', function(results) {
     poses = results;
   });
   // Hide the video element, and just show the canvas
-  //video2.hide();
+  video.hide();
 }
 
 function modelReady() {
@@ -91,17 +70,17 @@ function draw() {
         // https://p5js.org/reference/#/p5/image
         //videoImage.drawingContext.drawImage(video, 0, 0);
         //image(videoImage, 0, 0);
-        //image(video2, 0, 0, width, height);
+        image(video, 0, 0, width, height);
         drawSkeleton();
         drawKeypoints();
         // p5.jsがdraw()内のコードの連続的な実行を行うのを停める
         // https://p5js.org/reference/#/p5/noLoop
         // noLoop(); // posesの推定時はループを停める
     }
-    videoImage.drawingContext.drawImage(video, 0, 0);
-    image(videoImage, 0, 0);
-    drawSkeleton();
-    drawKeypoints();
+    //videoImage.drawingContext.drawImage(video, 0, 0);
+    //image(videoImage, 0, 0);
+    //drawSkeleton();
+    //drawKeypoints();
 // image(video, 0, 0, width, height);
 // We can call both functions to draw all keypoints and the skeletons
 fill(255, 0, 0);
