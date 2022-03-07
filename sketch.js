@@ -6,7 +6,7 @@ let poses = [];
 
 function setup() {
   console.log('セットアップ');
-  createCanvas(640, 480);
+  createCanvas(640, 360);
   //videoImage = createGraphics(width, height);
   video = createCapture(VIDEO);
   video.size(width, height);
