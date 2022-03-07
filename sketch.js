@@ -29,7 +29,7 @@ function setup() {
   console.log('セットアップ');
   createCanvas(640, 480);
   videoImage = createGraphics(width, height);
-  video2 = createCapture(VIDEO);
+  video2 = createCapture(video);
   video2.size(width, height);
 
   // Create a new poseNet method with a single detection
@@ -40,7 +40,7 @@ function setup() {
     poses = results;
   });
   // Hide the video element, and just show the canvas
-  video2.hide();
+  //video2.hide();
 }
 
 function modelReady() {
@@ -91,7 +91,7 @@ function draw() {
         // https://p5js.org/reference/#/p5/image
         //videoImage.drawingContext.drawImage(video, 0, 0);
         //image(videoImage, 0, 0);
-        image(video2, 0, 0, width, height);
+        //image(video2, 0, 0, width, height);
         drawSkeleton();
         drawKeypoints();
         // p5.jsがdraw()内のコードの連続的な実行を行うのを停める
