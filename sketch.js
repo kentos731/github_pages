@@ -1,13 +1,15 @@
 let video;
 let poseNet;
 let poses = [];
-
+let count_value = 0;
+let should_count = true; // フラグ
+let count_disp = document.getElementById("disp_count");  
+let reset_btn = document.getElementById("btn_reset");
 
 
 function setup() {
   console.log('セットアップ');
-  createCanvas(640, 360);
-  //videoImage = createGraphics(width, height);
+  createCanvas(600, 500);
   video = createCapture(VIDEO);
   video.size(width, height);
 
@@ -26,9 +28,14 @@ function modelReady() {
   select('#status').html('');
 }
 
+function count() {
+
+  count_value += 1;
+  console.log(count_value);
+  count_disp.innerHTML = count_value;
+}
 
 function draw() {
-  background(220);
     if (poses.length > 0) {
       let pose = poses[0].pose;
       let keypoint = pose.keypoints[0];
@@ -68,8 +75,6 @@ function draw() {
         // イメージをp5.jsのキャンバスに描画する。<= createCanvas(640, 360)で作成したキャンバス
         // image(img, x, y, [width], [height])
         // https://p5js.org/reference/#/p5/image
-        //videoImage.drawingContext.drawImage(video, 0, 0);
-        //image(videoImage, 0, 0);
         image(video, 0, 0, width, height);
         drawSkeleton();
         drawKeypoints();
@@ -77,10 +82,7 @@ function draw() {
         // https://p5js.org/reference/#/p5/noLoop
         // noLoop(); // posesの推定時はループを停める
     }
-    //videoImage.drawingContext.drawImage(video, 0, 0);
-    //image(videoImage, 0, 0);
-    //drawSkeleton();
-    //drawKeypoints();
+
 // image(video, 0, 0, width, height);
 // We can call both functions to draw all keypoints and the skeletons
 fill(255, 0, 0);
@@ -126,7 +128,10 @@ function drawSkeleton() {
     }
   }
 }
+reset_btn.onclick = function (){
+  count_value = 0; count_disp.innerHTML = count_value;
+}
 
 function ring() {
   document.getElementById("Open foot").play();
-}
+} 
